@@ -1,20 +1,13 @@
 import './App.css';
-const title = 'Welcome to my new blog';
-const likes = 50;
-const link = 'http://google.com'
+import Home from './home';
+import Navbar from './navbar';
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <div className="content">
-        <h2>{title}</h2>
-        <h2>Likes {likes}</h2>
-
-        <p>10</p>
-        <p>'Hello thimira'</p>
-        <p>{[1,2,3,4]}</p>
-        <p>{Math.random() * 10}</p>
-        <a href={link}>Google site</a>
+        <Home/>
       </div>
     </div>
   );
