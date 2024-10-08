@@ -1,14 +1,32 @@
 const title = 'Welcome to my new blog';
-const likes = 50;
+var likes = 50;
 const link = 'http://google.com'
+
+const clickToLike = () => {
+    console.log('clickToLike');
+}
+
+const clickToDislike = (name) => {
+    console.log('clickToDislike', name);
+}
+
+const clickToSubscribe = (name, e) => {
+    console.log('clickToSubscribe'+ name, e.target);
+}
 
 const Home = () => {
     return ( 
         <div className="home">
             <h2>Homepage</h2>
             <h2>{title}</h2>
-        <h2>Likes {likes}</h2>
+        <h2>Likes {likes} </h2>
+        <button onClick={clickToLike}>Like</button>
+        <button onClick={() => clickToDislike('mario')}>Dislike</button>
+        <button onClick={(e) => clickToSubscribe('mario', e)}>Subscribe</button>
 
+        <div style={{marginTop: '100px'}}>
+            
+        </div>
         <p>10</p>
         <p>'Hello thimira'</p>
         <p>{[1,2,3,4]}</p>
