@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const title = 'Welcome to my new blog';
 var likes = 50;
 const link = 'http://google.com'
@@ -15,6 +17,13 @@ const clickToSubscribe = (name, e) => {
 }
 
 const Home = () => {
+    const [name, setName] = useState('mario');
+    const [age, setAge] = useState(25);
+
+    const handleClick = () => {
+        setName('luigi');
+        setAge(35);
+    }
     return ( 
         <div className="home">
             <h2>Homepage</h2>
@@ -24,6 +33,12 @@ const Home = () => {
         <button onClick={() => clickToDislike('mario')}>Dislike</button>
         <button onClick={(e) => clickToSubscribe('mario', e)}>Subscribe</button>
 
+        <div style={{marginTop: '100px'}}>
+            
+        </div>
+
+        <p>{name} is {age} years old</p>
+        <button onClick={handleClick}>HandleClick</button>
         <div style={{marginTop: '100px'}}>
             
         </div>
