@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./Bloglist";
 
 const title = 'Welcome to my new blog';
 var likes = 50;
@@ -42,12 +43,7 @@ const Home = () => {
         <button onClick={(e) => clickToSubscribe('mario', e)}>Subscribe</button>
 
         <div style={{marginTop: '80px'}}></div>
-        {blogs.map(blog => (
-            <div className="blog-preview" key={blog.id}>
-                <h2>{blog.title}</h2>
-                <p>Written by {blog.author}</p>
-            </div>
-        ))}
+        <BlogList blogs={blogs} title={'All Blogs!'}/>
         
 
         <div style={{marginTop: '80px'}}></div>
