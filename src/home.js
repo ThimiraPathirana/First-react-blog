@@ -24,6 +24,14 @@ const Home = () => {
         setName('luigi');
         setAge(35);
     }
+
+    /* Outputting list using useState*/
+    const [blogs, setBlog] = useState([
+        {id:1, title:'Java beginner', body:'website...', author:'mario'},
+        {id:2, title:'Angular beginner', body:'website...', author:'yoshi'},
+        {id:3, title:'Spring tutorial', body:'website...', author:'mario'}
+    ])
+
     return ( 
         <div className="home">
             <h2>Homepage</h2>
@@ -33,15 +41,20 @@ const Home = () => {
         <button onClick={() => clickToDislike('mario')}>Dislike</button>
         <button onClick={(e) => clickToSubscribe('mario', e)}>Subscribe</button>
 
-        <div style={{marginTop: '100px'}}>
-            
-        </div>
+        <div style={{marginTop: '80px'}}></div>
+        {blogs.map(blog => (
+            <div className="blog-preview" key={blog.id}>
+                <h2>{blog.title}</h2>
+                <p>Written by {blog.author}</p>
+            </div>
+        ))}
+        
 
+        <div style={{marginTop: '80px'}}></div>
         <p>{name} is {age} years old</p>
         <button onClick={handleClick}>HandleClick</button>
-        <div style={{marginTop: '100px'}}>
-            
-        </div>
+
+        <div style={{marginTop: '80'}}></div>
         <p>10</p>
         <p>'Hello thimira'</p>
         <p>{[1,2,3,4]}</p>
