@@ -33,6 +33,11 @@ const Home = () => {
         {id:3, title:'Spring tutorial', body:'website...', author:'mario'}
     ])
 
+    const handleDelete = (id) => {
+       const newBlogs = blogs.filter(blog =>  blog.id !== id);
+       setBlog(newBlogs);
+    }
+
     return ( 
         <div className="home">
             <h2>Homepage</h2>
@@ -43,8 +48,8 @@ const Home = () => {
         <button onClick={(e) => clickToSubscribe('mario', e)}>Subscribe</button>
 
         <div style={{marginTop: '80px'}}></div>
-        <BlogList blogs={blogs} title={'All Blogs!'}/>
-        <BlogList blogs={blogs.filter((blog) => blog.author === 'mario' )} title={'Mario Blogs!'}/>
+        <BlogList blogs={blogs} title={'All Blogs!'} handleDelete={handleDelete}/>
+        {/* <BlogList blogs={blogs.filter((blog) => blog.author === 'mario' )} title={'Mario Blogs!'}/> */}
         
 
         <div style={{marginTop: '80px'}}></div>
