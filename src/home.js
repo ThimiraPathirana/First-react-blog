@@ -44,6 +44,7 @@ const Home = () => {
 
         <div style={{marginTop: '80px'}}></div>
         <BlogList blogs={blogs} title={'All Blogs!'}/>
+        <BlogList blogs={blogs.filter((blog) => blog.author === 'mario' )} title={'Mario Blogs!'}/>
         
 
         <div style={{marginTop: '80px'}}></div>
