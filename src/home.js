@@ -38,9 +38,12 @@ const Home = () => {
        setBlog(newBlogs);
     }
 
+    /* Render at once using useEffect*/
+    const [occupation, setOccupation] = useState('Novel writer');
+
     useEffect(() => {
         console.log('user effect function');
-    });
+    }, [occupation]);
 
     return ( 
         <div className="home">
@@ -57,8 +60,9 @@ const Home = () => {
         
 
         <div style={{marginTop: '80px'}}></div>
-        <p>{name} is {age} years old</p>
+        <p>{name} is {age} years old. He is a {occupation}</p>
         <button onClick={handleClick}>HandleClick</button>
+        <button onClick={() => setOccupation('Short story writer')}>HandleClick</button>
 
         <div style={{marginTop: '80'}}></div>
         <p>10</p>
