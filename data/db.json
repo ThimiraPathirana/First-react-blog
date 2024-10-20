@@ -1,0 +1,22 @@
+{
+    "blogs":[
+        {
+            "id":1, 
+            "title":"Java beginner", 
+            "body":"website...", 
+            "author":"mario"
+        },
+        {
+            "id":2, 
+            "title":"Angular beginner", 
+            "body":"website...", 
+            "author":"yoshi"
+        },
+        {
+            "id":3, 
+            "title":"Spring tutorial", 
+            "body":"website...", 
+            "author":"mario"
+        }
+    ]
+}

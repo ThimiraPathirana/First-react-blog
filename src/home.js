@@ -27,11 +27,11 @@ const Home = () => {
     }
 
     /* Outputting list using useState*/
-    const [blogs, setBlog] = useState([
-        {id:1, title:'Java beginner', body:'website...', author:'mario'},
-        {id:2, title:'Angular beginner', body:'website...', author:'yoshi'},
-        {id:3, title:'Spring tutorial', body:'website...', author:'mario'}
-    ])
+    // const [blogs, setBlog] = useState([
+    //     {id:1, title:'Java beginner', body:'website...', author:'mario'},
+    //     {id:2, title:'Angular beginner', body:'website...', author:'yoshi'},
+    //     {id:3, title:'Spring tutorial', body:'website...', author:'mario'}
+    // ])
 
     const handleDelete = (id) => {
        const newBlogs = blogs.filter(blog =>  blog.id !== id);
@@ -45,6 +45,18 @@ const Home = () => {
         console.log('user effect function');
     }, [occupation]);
 
+    /* Fetch list using useState json data*/
+    const [blogs, setBlog] = useState([null])
+    useInsertionEffect(() => {
+        fetch('http://localhost:8000/blogs')
+        .then( res => {
+            return res.json();
+        })
+        .then(data =>{
+            setBlog(data);
+        })
+    }, [])
+
     return ( 
         <div className="home">
             <h2>Homepage</h2>
@@ -55,7 +67,8 @@ const Home = () => {
         <button onClick={(e) => clickToSubscribe('mario', e)}>Subscribe</button>
 
         <div style={{marginTop: '80px'}}></div>
-        <BlogList blogs={blogs} title={'All Blogs!'} handleDelete={handleDelete}/>
+        {blogs && <BlogList blogs={blogs} title={'All Blogs!'} handleDelete={handleDelete}/>}
+        {/* <BlogList blogs={blogs} title={'All Blogs!'} handleDelete={handleDelete}/> */}
         {/* <BlogList blogs={blogs.filter((blog) => blog.author === 'mario' )} title={'Mario Blogs!'}/> */}
         
 
